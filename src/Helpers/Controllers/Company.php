@@ -5,9 +5,9 @@ namespace Jiny\Sale\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use \Jiny\Table\Http\Controllers\TableController;
+use \Jiny\Table\Http\Controllers\ResourceController;
 
-class Company extends TableController
+class Company extends ResourceController
 {
     public function __construct()
     {
