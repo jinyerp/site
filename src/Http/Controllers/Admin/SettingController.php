@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Schema;
 use Jiny\Table\Http\Controllers\ConfigController;
 class SettingController extends ConfigController
 {
+    const MENU_PATH = "menus";
     public function __construct()
     {
         parent::__construct();
@@ -34,7 +35,11 @@ class SettingController extends ConfigController
             ## 사용자 지정메뉴 우선설정
             xMenu()->setPath($user->menu);
         } else {
-            xMenu()->setPath("menus/7.json");
+            ## 설정에서 적용한 메뉴
+            if(isset($this->actions['menu'])) {
+                $menuid = _getKey($this->actions['menu']);
+                xMenu()->setPath(self::MENU_PATH.DIRECTORY_SEPARATOR.$menuid.".json");
+            }
         }
     }
 

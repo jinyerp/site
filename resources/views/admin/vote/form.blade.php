@@ -1,5 +1,4 @@
 <div>
-
     <x-navtab class="mb-3 nav-bordered">
 
         <!-- formTab -->
@@ -10,50 +9,56 @@
             </x-navtab-link>
 
             <x-form-hor>
-                <x-form-label>resource path</x-form-label>
+                <x-form-label>활성화</x-form-label>
                 <x-form-item>
-                    @php
-                        if(!isset($form['path'])) {
-                            // 기본값
-                            $form['path'] = "actions";
-                        }
-                    @endphp
+                    {!! xCheckbox()
+                        ->setWire('model.defer',"forms.enable")
+                    !!}
+                </x-form-item>
+            </x-form-hor>
+
+            <x-form-hor>
+                <x-form-label>제목</x-form-label>
+                <x-form-item>
                     {!! xInputText()
-                        ->setWire('model.defer',"forms.path")
+                        ->setWire('model.defer',"forms.title")
                         ->setWidth("standard")
                     !!}
                 </x-form-item>
             </x-form-hor>
 
             <x-form-hor>
-                <x-form-label>menu</x-form-label>
+                <x-form-label>합계</x-form-label>
                 <x-form-item>
-
                     {!! xInputText()
-                        ->setWire('model.defer',"forms.menu")
+                        ->setWire('model.defer',"forms.tot")
                         ->setWidth("standard")
                     !!}
                 </x-form-item>
             </x-form-hor>
 
             <x-form-hor>
-                <x-form-label>Auth</x-form-label>
+                <x-form-label>횟수</x-form-label>
                 <x-form-item>
-
                     {!! xInputText()
-                        ->setWire('model.defer',"forms.auth")
+                        ->setWire('model.defer',"forms.cnt")
                         ->setWidth("standard")
                     !!}
                 </x-form-item>
             </x-form-hor>
 
 
+            <x-form-hor>
+                <x-form-label>담당자</x-form-label>
+                <x-form-item>
+                    {!! xInputText()
+                        ->setWire('model.defer',"forms.manager")
+                        ->setWidth("standard")
+                    !!}
+                </x-form-item>
+            </x-form-hor>
 
         </x-navtab-item>
-
-
-
-
 
         <!-- formTab -->
         <x-navtab-item >
